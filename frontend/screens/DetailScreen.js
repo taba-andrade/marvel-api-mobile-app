@@ -39,7 +39,7 @@ const DetailScreen = ({ route }) => {
         <Animatable.View style={{ alignItems: 'center', backgroundColor: '#d8e7eb'}}
             animation="bounceInDown"
             duration={500}
-            delay={3000}
+            delay={4000}
         >
             <Title>No comics found for this character</Title>
         </Animatable.View>   
