@@ -48,7 +48,6 @@ def characterList(request):
     attributionText = []
     total = 1562  # total number of characters
     limit = 40
-    
 
     if request.method == 'GET':
 
@@ -57,7 +56,7 @@ def characterList(request):
 
         try:
             r = requests.get(
-                "http://gateway.marvel.com/v1/public/characters?", params=params)
+                "https://gateway.marvel.com/v1/public/characters?", params=params)
         except requests.exceptions.HTTPError as err:
             return SystemExit(err)
 
@@ -93,7 +92,7 @@ def characterSearch(request, keyword):
 
     params = make_authorization(limit=40, offset=None)
 
-    url = f'http://gateway.marvel.com/v1/public/characters?nameStartsWith={keyword}&'
+    url = f'https://gateway.marvel.com/v1/public/characters?nameStartsWith={keyword}&'
 
     try:
         r = requests.get(url, params)
@@ -131,7 +130,7 @@ def characterComics(request, id):
 
     params = make_authorization(limit=0, offset=None)
 
-    url = f'http://gateway.marvel.com/v1/public/characters/{id}/comics?'
+    url = f'https://gateway.marvel.com/v1/public/characters/{id}/comics?'
 
     try:
         r = requests.get(url, params)
@@ -163,3 +162,8 @@ def characterComics(request, id):
     context = {'comics': comics}
 
     return JsonResponse(context)
+
+
+def home(request):
+
+    return render(request, 'home.html')

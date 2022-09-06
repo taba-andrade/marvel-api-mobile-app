@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from base import views
 
 urlpatterns = [
+    path('', views.home, name='home'),
     path('api/characters/', views.characterList, name='character-list'),
     path('api/comics/<int:id>/',
          views.characterComics, name='character-comics'),
