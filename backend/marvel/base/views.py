@@ -51,7 +51,7 @@ def characterList(request):
 
     if request.method == 'GET':
 
-        offset = int(random.randint(0, total - 40))
+        offset = int(random.randint(1, total - 40))
         params = make_authorization(limit, offset)
 
         try:
